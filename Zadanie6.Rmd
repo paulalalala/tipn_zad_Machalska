@@ -1,0 +1,71 @@
+---
+title: "Zadanie_6"
+author: "Paulina Machalska"
+date: "6 czerwca 2018"
+output: html_document
+theme: united
+highlight: tango
+df_print: paged
+---
+
+## Diamenty
+
+Diament – bardzo rzadki minera³ z gromady pierwiastków rodzimych. Nazwa pochodzi od stgr. ???????µ???? adamas (dope³niacz ???????µ?????????? adamantos, ³ac. diamentum), co znaczy „niepokonany, niezniszczalny” i nawi¹zuje do wyj¹tkowej twardoœci tego minera³u. Jest najtwardsz¹ znan¹ substancj¹ z wystêpuj¹cych w przyrodzie.
+
+#### Ciekawostka
+
+Antoine Lavoisier po raz pierwszy spali³ diament pod szklanym kloszem, u¿ywaj¹c promieni s³onecznych skupionych soczewk¹. Udowodni³ w ten sposób, ¿e diament to czysty wêgiel.
+
+#### W³aœciwoœci diamentów
+
+1. Ma dobr¹ przewodnoœæ ciepln¹.
+2. Jest izolatorem (z wyj¹tkiem diamentu niebieskiego, bêd¹cego pó³przewodnikiem).
+3. Jest trudno topliwy i odporny na dzia³anie kwasów i zasad.
+4. Mo¿e zawieraæ wrostki innych minera³ów.
+
+
+Ze wzglêdu na cechy zewnêtrzne wyró¿nia siê kilka typów diamentów:
+
+* bort – wystêpuje w postaci nieregularnych zrostów ziarnistych, drobnokrystalicznych skupieñ
+* ballas – w³óknisto-promieniste skupienia kryszta³ów diamentu, wystêpuje zwykle z bortem
+* lonsdaleit – odmiana diamentu wystêpuj¹ca w meteorytach, o sieci regularnej z licznymi defektami
+* karbonado – zwany te¿ czarnym diamentem, wystêpuje w postaci drobnoziarnistych, porowatych skupieñ zabarwionych na czarno, szaro lub ciemnozielono, o ró¿nej wielkoœci
+
+
+Wszystko o diamentach:
+
+[Informacje](https://www.geselle.pl)
+
+
+Co jest wa¿ne, kiedy sprawdamy diamenty:
+
+**Karaty** | **Ciêcie** | **Kolor** | **Cena**
+:---:|:---:|:---:|:---:|:---:
+Iloœæ karatów | Jakoœæ | Odcieñ | Wartoœæ 
+
+
+#### Diamenty
+```{r}
+library(tidyverse)
+library(ggplot2)
+
+diamonds %>% filter(cut == "Ideal")
+```
+
+
+#### Cena w zale¿noœci od iloœci karatów
+```{r}
+library(tidyverse)
+library(ggplot2)
+
+diamenty <- diamonds 
+
+ggplot(diamenty, aes(price, carat)) + 
+geom_point() +
+labs(title = "Cena a karaty", x = "Iloœæ karatów", y = "Cena")
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
